@@ -17,14 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def ping():
-    return {"message": "pong"}
-
-
 @app.get("/weather")
 async def weather(city: str = Query(..., min_length=2, max_length=50)):
-    # Buscar coordenadas
     coords = await get_coordinates(city)
     if not coords:
         return {
@@ -33,7 +27,6 @@ async def weather(city: str = Query(..., min_length=2, max_length=50)):
             "data": None
         }
 
-    # Buscar clima
     weather = await get_weather(coords["latitude"], coords["longitude"])
     if not weather:
         return {
@@ -42,7 +35,6 @@ async def weather(city: str = Query(..., min_length=2, max_length=50)):
             "data": None
         }
 
-    # Montar resposta limpa e amigável ao frontend
     response = {
         "city": coords["name"],
         "coordinates": {

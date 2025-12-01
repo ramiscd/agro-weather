@@ -42,15 +42,12 @@ async def get_weather(lat: float, lon: float) -> Optional[dict]:
     if not current or not hourly:
         return None
 
-    # Hora atual do bloco current_weather
     current_time = current["time"]
     target = datetime.fromisoformat(current_time)
 
-    # Lista com as horas de hourly
     times = hourly.get("time", [])
     hour_times = [datetime.fromisoformat(t) for t in times]
 
-    # Encontrar o índice de horário mais próximo
     closest_idx = min(
         range(len(hour_times)),
         key=lambda i: abs(hour_times[i] - target)
