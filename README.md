@@ -134,4 +134,3 @@ Algumas decisões foram tomadas para tornar a experiência **leve e clara**:
   * Criar sistema de favoritos persistido no `localStorage`
   * Disponibilizar histórico de buscas
   * Adicionar endpoint para previsão semanal
-
