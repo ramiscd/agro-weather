@@ -128,6 +128,7 @@ Algumas decisões foram tomadas para tornar a experiência **leve e clara**:
   * Criar tipagem automática com **zod** no frontend
   * Separar o serviço de coordenadas em um módulo dedicado
 
+
 ### Possíveis Extensões
 
   * Adicionar mapa interativo com **Leaflet** ou **Mapbox**
